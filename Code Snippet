@@ -1,0 +1,8 @@
+cont_resp = zoho.crm.getRecordById("Contacts",   
+(input.contact.get("Contacts.ID")).toLong());
+   Fnam = cont_resp.get("First Name");
+   Lnam = cont_resp.get("Last Name");
+   mail = cont_resp.get("Email");
+   Mob = cont_resp.get("Mobile");
+   map = { "Fname" : Fnam, "Lname" : Lnam, "Email" : mail, "Mobile" : Mob };
+   response = zoho.crm.invokeConnector("newgooglesync.googlecontactsyncconnector.pushcontacttogoogle", map); 
